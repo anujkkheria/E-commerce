@@ -28,7 +28,7 @@ const Login = () => {
       sx={{
         display: 'flex',
         p: 1,
-        gap: '2%',
+        gap: 2,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
@@ -45,7 +45,7 @@ const Login = () => {
         required
       />
       <TextField
-        sx={{ height: '5%', mt: 2 }}
+        sx={{ mt: 2 }}
         type='password'
         name={'password'}
         value={loginOptions.password}

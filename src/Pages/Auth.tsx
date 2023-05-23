@@ -1,5 +1,5 @@
 import { Box, Paper } from '@mui/material'
-import Login from './Login'
+import{Outlet} from 'react-router-dom'
 import React from 'react'
 
 const Auth: React.FC<any> = () => {
@@ -15,7 +15,7 @@ const Auth: React.FC<any> = () => {
       }}
     >
       <Box component={Paper} sx={{ width: '30%', height: '50%', p: 2 }}>
-        <Login />
+       <Outlet />
       </Box>
     </Box>
   )
