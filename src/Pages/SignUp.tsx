@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Box, TextField, Typography, Button, Container } from '@mui/material'
 const SignUp = () => {
   const [SignupInfo, setSignupInfo] = useState({
-    Name: '',
+    name: '',
     email: '',
     password: '',
-    Cpassword: '',
+    confirmPassword: '',
   })
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -13,37 +13,42 @@ const SignUp = () => {
     setSignupInfo({ ...SignupInfo, [event.target.name]: event.target.value })
     console.log(SignupInfo)
   }
+   const onSubmit =()=>{
+    fetch('http://localhost:3001/v1/SignUp',{
+      method:"POST",
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({...SignupInfo})
+    })
+    console.log(SignupInfo)
+   }
   return (
     <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 0.5,
+        gap: 2,
         height: '100%',
-        backgroundColor: '#3f55ff',
+        p:1,
+        
       }}
     >
-      <Container sx={{ backgroundColor: '#fff', height: '50%' }}>
         <Typography>Signup</Typography>
         <TextField
           label={'Name'}
-          name='Name'
-          sx={{ height: '5%' }}
-          value={SignupInfo.Name}
+          name='name'
+          value={SignupInfo.name}
           onChange={handleChange}
           fullWidth
         />
         <TextField
           label={'Email'}
           name='email'
-          sx={{ height: '5%' }}
           value={SignupInfo.email}
           onChange={handleChange}
           fullWidth
         />
         <TextField
           label={'Password'}
-          sx={{ height: '5%' }}
           name='password'
           value={SignupInfo.password}
           onChange={handleChange}
@@ -51,15 +56,14 @@ const SignUp = () => {
         />
         <TextField
           label={'Confirm Password'}
-          name='Cpassword'
-          value={SignupInfo.Cpassword}
+          name='confirmPassword'
+          value={SignupInfo.confirmPassword}
           onChange={handleChange}
           fullWidth
         />
-        <Button variant='contained' sx={{ m: 1 }}>
+        <Button variant='contained' sx={{ m: 1 }} onClick={onSubmit}>
           Submit
         </Button>
-      </Container>
     </Box>
   )
 }
