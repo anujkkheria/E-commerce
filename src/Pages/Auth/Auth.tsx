@@ -14,7 +14,7 @@ const Auth: React.FC<any> = () => {
         alignItems: 'center',
       }}
     >
-      <Box component={Paper} sx={{ width: '30%', height: '50%', p: 2 }}>
+      <Box component={Paper} sx={{ width: '30%', height: '50%', p: 2}}>
        <Outlet />
       </Box>
     </Box>

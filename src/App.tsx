@@ -1,10 +1,9 @@
 import React from 'react'
-import Auth from './Pages/Auth'
-
+import Router from './Pages/Components/Router'
 const App: React.FC<any> = () => {
   return (
     <div className='App'>
-      <Auth />
+      <Router />
     </div>
   )
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Button, Box, TextField } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const [loginOptions, setLoginOptions] = useState({
     email: '',
     password: '',
   })
+  const navigate=useNavigate()
   const onChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -12,19 +14,20 @@ const Login = () => {
       ...loginOptions,
       [event.target.name]: event.target.value,
     })
-    console.log(loginOptions)
   }
   const onSubmit = () => {
     fetch('http://localhost:3001/v1/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...loginOptions }),
-    })
-    console.log(loginOptions)
+    }).then((response)=>response.json()).then((result)=>{
+      console.log(JSON.stringify(result))
+      localStorage.setItem("user",JSON.stringify(result.userInfo))
+    }).then(()=>navigate("/DashBoard/home"))
   }
 
   return (
-    <Box
+    <Box  
       sx={{
         display: 'flex',
         p: 1,
@@ -35,7 +38,7 @@ const Login = () => {
       }}
     >
       <TextField
-        sx={{ height: '1%', mt: 2 }}
+        sx={{  mt: 2 }}
         type='email'
         name={'email'}
         label={'email'}
