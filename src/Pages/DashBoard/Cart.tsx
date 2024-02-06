@@ -7,11 +7,10 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  CardMedia,
 } from "@mui/material";
 import { cartContext } from "../../Context/Cart";
 
-const Cart = () => {
+const Cart: React.FC = () => {
   const { state } = useContext(cartContext);
   console.log(state);
   return (
@@ -42,6 +41,7 @@ const Cart = () => {
                   >
                     <img
                       src={item.image}
+                      alt={item.name}
                       style={{
                         height: "50px",
                         width: "50px",

@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header";
 import { CartProvider } from "../../Context/Cart";
-const DashBoard = () => {
+const DashBoard: React.FC = () => {
   console.log(process.env);
   return (
     <CartProvider>
