@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./Logo.css";
 import { Link } from "react-router-dom";
 import {
@@ -13,7 +13,7 @@ import { ShoppingCart } from "@mui/icons-material";
 import LOGO from "../../logo/png/logo-no-background.png";
 import { cartContext } from "../../Context/Cart";
 
-const Header = () => {
+const Header: React.FC = () => {
   const user = JSON.parse(localStorage.getItem("user") || "");
   console.log(user);
   const { state } = useContext(cartContext);
