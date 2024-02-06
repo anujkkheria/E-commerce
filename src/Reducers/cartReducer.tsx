@@ -40,14 +40,18 @@ const cartReducer: CartReducer = (state, action) => {
         console.log(item);
       }
       UpdatedItems = state.cartItems.filter((item) => {
-        item._id !== item;
+        if (item._id !== item) {
+          return item;
+        } else {
+          return null;
+        }
       });
       return {
         ...state,
         cartItems: [...UpdatedItems],
         cartSize: state.cartItems.reduce((acc, item) => acc + item.qty, 0),
         cartTotal: state.cartItems.reduce((acc, item) => {
-          acc + item.price * item.qty;
+          return acc + item.price * item.qty;
         }, 1),
       };
     }
