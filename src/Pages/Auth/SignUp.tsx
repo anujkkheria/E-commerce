@@ -14,7 +14,7 @@ const SignUp = () => {
     console.log(SignupInfo);
   };
   const onSubmit = () => {
-    fetch("http://localhost:3001/v1/SignUp", {
+    fetch(`${process.env.React_App_Base_Url}/v1/SignUp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...SignupInfo }),

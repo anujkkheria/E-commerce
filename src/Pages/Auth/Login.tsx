@@ -21,7 +21,7 @@ const Login = () => {
     setRememberMe((prev) => !prev);
   };
   const onSubmit = () => {
-    fetch("http://localhost:3001/v1/login", {
+    fetch(`${process.env.React_App_Base_Url}/v1/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...loginOptions }),

@@ -10,7 +10,7 @@ import SignUp from "../Auth/SignUp";
 import DashBoard from "../DashBoard/DashBoard";
 import Cart from "../DashBoard/Cart";
 import Products from "../DashBoard/Products";
-import Category from "./Category";
+// import Category from "./Category";
 const Router = () => {
   const router = createBrowserRouter([
     {
@@ -37,7 +37,7 @@ const Router = () => {
       children: [
         {
           path: "home",
-          element: <Category />,
+          element: <Products />,
         },
         {
           path: "products",
