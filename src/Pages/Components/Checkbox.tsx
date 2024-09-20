@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FormControlLabel, Checkbox } from "@mui/material";
 interface ICheckBox {
   label: string;
